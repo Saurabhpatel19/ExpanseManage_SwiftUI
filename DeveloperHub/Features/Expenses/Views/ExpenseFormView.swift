@@ -1,11 +1,3 @@
-//
-//  ExpenseFormView.swift
-//  DeveloperHub
-//
-//  Created by Saurabh on 08/12/25.
-//
-
-
 import SwiftUI
 import SwiftData
 
@@ -88,23 +80,25 @@ struct ExpenseFormView: View {
             let amountValue = Double(amount)
         else { return }
 
-        switch mode {
-        case .add:
-            let new = ExpenseModel(
-                title: title,
-                category: category.rawValue,
-                amount: amountValue,
-                date: date
-            )
-            context.insert(new)
+        withAnimation(.easeInOut(duration: 0.25)) {
+            switch mode {
+            case .add:
+                let new = ExpenseModel(
+                    title: title,
+                    category: category.rawValue,
+                    amount: amountValue,
+                    date: date
+                )
+                context.insert(new)
 
-        case .edit:
-            if let expense {
-                expense.title = title
-                expense.category = category.rawValue
-                expense.amount = amountValue
-                expense.date = date
-                // No explicit save needed – SwiftData auto-saves
+            case .edit:
+                if let expense {
+                    expense.title = title
+                    expense.category = category.rawValue
+                    expense.amount = amountValue
+                    expense.date = date
+                    // SwiftData auto-saves
+                }
             }
         }
 

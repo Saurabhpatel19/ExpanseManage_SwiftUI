@@ -31,13 +31,7 @@ struct ExpenseSummaryView: View {
                     Text("₹\(Int(today))")
                 }
             }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.blue.opacity(0.08))
-        )
+        }.cardStyle()
     }
 }
 

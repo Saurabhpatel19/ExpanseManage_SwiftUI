@@ -15,7 +15,11 @@ struct MainTabView: View {
                     Image(systemName: "list.bullet")
                     Text("Expenses")
                 }
-
+            ExpenseAnalyticsView()
+                .tabItem {
+                    Image(systemName: "chart.bar.xaxis")
+                    Text("Analytics")
+                }
             SettingsScreen()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
